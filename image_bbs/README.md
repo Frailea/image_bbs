@@ -1,8 +1,13 @@
 # 画像掲示板
 
+画像をアップロードでき、その画像を表示し削除や、タグが付けられるプログラム
+
 使用言語：Golang
+
 データベース：postgreSQL
+
 画像ストレージ：Google Cloud Storage
+
 実行仮想マシン：Google Compute Engine
 
 
