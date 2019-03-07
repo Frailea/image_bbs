@@ -1,3 +1,11 @@
+# 画像掲示板
+
+使用言語：Golang
+データベース：postgreSQL
+画像ストレージ：Google Cloud Storage
+実行仮想マシン：Google Compute Engine
+
+
 ## 必要ライブラリなど
 * フレームワーク　echo
 
