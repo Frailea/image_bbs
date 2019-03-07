@@ -1,0 +1,33 @@
+{{define "content"}}
+  <form action="/form" method="post" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <input type="submit" value="登録">
+  </form>
+  <!-- 画像データを全て一覧で表示する。-->
+  {{ range . }}
+    <br>
+  <div class="floatl">
+    <p>No.{{ .Image.ImgId }} 投稿日時:{{ .Image.CreateDate }} 更新日時:{{ .Image.UpdateDate }}</p>　
+    <form action="/imgDelete" method="post">
+      <input type="hidden" name=imgPath value={{ .Image.ImgPath }}>
+      <input type="submit" value="画像削除">
+    </form>
+    <img src= "https://storage.googleapis.com/ishida-kadai6/{{ .Image.ImgPath }}" >
+    <div class="floatr">
+      <form action="/registerTag" method="post">
+        <input value="" name="tagname">
+        <input type="hidden" name="imgId" value={{ .Image.ImgId }}>
+        <input type="submit" value="タグ登録">
+      </form>
+      <!-- 画像別のタグデータを一覧で表示する。-->
+      {{range .Tags }}
+      <p>{{ .TagName }}</p>
+      <form action="/deleteTag" method="post">
+        <input type="hidden" name=tagId value={{ .TagId }}>
+        <input type="submit" value="タグ削除">
+      </form>
+      {{end}}
+    </div>
+    {{end}}
+  </div>
+{{end}}
